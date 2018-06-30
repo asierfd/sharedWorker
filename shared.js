@@ -1,6 +1,6 @@
 var ws = null
 //var url = "ws://merchant.qless.com:8000"
-var url ='ws://demos.kaazing.com/echo';
+var url ="ws://demos.kaazing.com/echo";
 self.addEventListener("connect", function(e) {
 	var port = e.ports[0];
 	let contador = 1;
