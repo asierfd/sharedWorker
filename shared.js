@@ -50,7 +50,7 @@ self.addEventListener("connect", function(e) {
 			} else {
 				port.postMessage("reusing connection to " + url);
 				ws.close();
-				window.location.reload();
+				port.postMessage("reloading");
 			}
 		}
 	}, false);
