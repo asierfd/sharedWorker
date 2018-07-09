@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		
+		<p>url: <span id="location-url"></span></p>
 		<p>Text message worker:</p>
 		<p id="text-message"></p>
 
@@ -21,12 +21,19 @@
 			worker.port.postMessage("start");
 			document.getElementById("running-message").innerHTML = "worker start";
 			*/
+			document.getElementById("location-url").innerHTML = window.location.href;
 			var ws = null;
 			var url = "ws://merchant.qless.com:8000";
 			let contador = 1;
 			let interval;
 			if (ws === null) {
-				ws = new WebSocket(url);
+				try{
+					ws = new WebSocket(url);
+				}
+				catch(error){
+					console.log('error', error);
+				}
+				
 				document.getElementById("running-message").innerHTML ="started connection to " + url;
 
 				// Set interval to check time
