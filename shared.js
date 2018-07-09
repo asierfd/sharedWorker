@@ -49,6 +49,8 @@ self.addEventListener("connect", function(e) {
 
 			} else {
 				port.postMessage("reusing connection to " + url);
+				websocket.close();
+				window.reload();
 			}
 		}
 	}, false);
