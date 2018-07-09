@@ -5,7 +5,12 @@
 			var worker = new SharedWorker("shared.js");
 			worker.port.addEventListener("message", function(e) {
 				console.log("Got message: " + e.data);
-				if(e.data == 'reloading') window.location.reload();;
+				if(e.data == 'reloading'){
+					console.log('loading again');
+					setTimeout(function(){
+						window.location.reload();
+					}, 5000);
+				}
 			}, false);
 			worker.port.start();
 			worker.port.postMessage("start");
