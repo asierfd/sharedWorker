@@ -48,7 +48,7 @@ self.addEventListener("connect", function(e) {
 				};
 
 			} else {
-				port.postMessage("reusing connection to " + url);
+				//port.postMessage("reusing connection to " + url);
 				ws.close();
 				port.postMessage("reloading");
 			}
